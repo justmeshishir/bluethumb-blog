@@ -1,9 +1,13 @@
-= form_tag(posts_path, method: :post) do |f|
-  div
-    = label_tag 'Title'
-    = text_field_tag :title, nil, required: true
-  div
-    = label_tag 'Body'
-    = text_area_tag :body, nil, required: true
-  div
-    = submit_tag 'Create Post'
+.container.w-full.md:max-w-3xl.mx-auto.pt-20.mb-20
+  = form_tag(posts_path, method: :post) do |f|
+    div class="lg:col-span-2"
+      div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
+        div class="md:col-span-5"
+          label for="title" Title
+          = text_field_tag :title, nil, required: true, class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50'
+        div class="md:col-span-5"
+          label for="body" Body
+          = text_area_tag :body, nil, required: true, class: 'border mt-1 rounded py-2 px-4 w-full bg-gray-50', rows: 20, cols: 10
+        div class="md:col-span-5"
+          = submit_tag 'Create Post', class: 'flex-1 cursor-pointer block md:inline-block appearance-none bg-green-500 text-white px-2 font-semibold tracking-wider uppercase py-2 rounded shadow hover:bg-green-400'
+          = link_to 'Cancel', root_path, class: 'flex-1 block md:inline-block appearance-none mx-2 px-2 font-semibold tracking-wider uppercase py-2 rounded shadow'

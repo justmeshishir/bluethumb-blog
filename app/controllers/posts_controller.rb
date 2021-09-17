@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = BluethumbService.new.posts
+    @posts = BluethumbService.new.posts.sort! { |a, b| b['created_at'] <=> a['created_at'] }
   end
 
   def new; end

@@ -1,6 +1,7 @@
-h3 All posts
-= link_to 'Create new post', new_post_path
-- @posts&.each do |post|
-  = link_to post_path(post['id']) do
-    .title
-      b = post['title']
+.container.w-full.md:max-w-3xl.mx-auto.pt-20
+  .w-full.px-4.md:px-6.text-xl.text-gray-800.leading-normal style="font-family:Georgia,serif;"
+    .font-sans.text-center
+      - @posts&.each do |post|
+        = link_to post_path(post['id']) do
+          h1.font-bold.font-sans.break-normal.text-gray-900.pt-6.pb-2.text-3xl.md:text-4xl = post['title']
+        p.text-sm.md:text-base.font-normal.text-gray-600 Published #{Date.parse(post['created_at']).strftime('%m %B %Y')}
