@@ -1,0 +1,9 @@
+= form_tag(posts_path, method: :post) do |f|
+  div
+    = label_tag 'Title'
+    = text_field_tag :title, nil, required: true
+  div
+    = label_tag 'Body'
+    = text_area_tag :body, nil, required: true
+  div
+    = submit_tag 'Create Post'

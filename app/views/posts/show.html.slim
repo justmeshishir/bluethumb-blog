@@ -1,3 +1,10 @@
 h1 = @post['title']
 
 p = @post['body']
+
+.comments
+  - @post['comments']&.each do |comment|
+    .comment
+      span
+        b = "By #{comment['name']}"
+      p = comment['body']

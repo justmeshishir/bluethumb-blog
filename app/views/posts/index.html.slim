@@ -1,5 +1,5 @@
 h3 All posts
-
+= link_to 'Create new post', new_post_path
 - @posts&.each do |post|
   = link_to post_path(post['id']) do
     .title
