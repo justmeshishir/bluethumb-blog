@@ -35,7 +35,7 @@ class BluethumbService
     comments = find_comments(post['comments_path'])
     post.merge!(comments)
 
-    post
+    JSON.parse(post.body)
   end
 
   def create_comment

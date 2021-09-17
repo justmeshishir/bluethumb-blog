@@ -1,10 +1,26 @@
-h1 = @post['title']
+.container.w-full.md:max-w-3xl.mx-auto.pt-20
+  .w-full.px-4.md:px-6.text-xl.text-gray-800.leading-normal style="font-family:Georgia,serif;"
+    .font-sans
+      p.text-base.md:text-sm.text-green-500.font-bold
+        | &lt;
+        a.text-base.md:text-sm.text-green-500.font-bold.no-underline.hover:underline href="#"  BACK TO BLOG
+      h1.font-bold.font-sans.break-normal.text-gray-900.pt-6.pb-2.text-3xl.md:text-4xl = @post['title']
+      p.text-sm.md:text-base.font-normal.text-gray-600 Published #{Date.parse(@post['created_at']).strftime('%m %B %Y')}
 
-p = @post['body']
+    p.py-6
+      = @post['body'].html_safe
 
-.comments
-  - @post['comments']&.each do |comment|
-    .comment
-      span
-        b = "By #{comment['name']}"
-      p = comment['body']
+  /! Divider
+  hr.border-b-2.border-gray-400.mb-8.mx-4
+
+  .font-sans.flex.justify-between.content-center.px-4.pb-12
+    .text-left
+      span.text-xs.md:text-sm.font-normal.text-gray-600 &lt; Previous Post
+      br
+      p
+        a.break-normal.text-base.md:text-sm.text-green-500.font-bold.no-underline.hover:underline href="#"  Blog title
+    .text-right
+      span.text-xs.md:text-sm.font-normal.text-gray-600 Next Post &gt;
+      br
+      p
+        a.break-normal.text-base.md:text-sm.text-green-500.font-bold.no-underline.hover:underline href="#"  Blog title
