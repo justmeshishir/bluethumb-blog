@@ -33,9 +33,8 @@ class BluethumbService
   def find_post
     post = self.class.get("/posts/#{@post_id}")
     comments = find_comments(post['comments_path'])
-    post.merge!(comments)
 
-    JSON.parse(post.body)
+    post.merge comments
   end
 
   def create_comment
