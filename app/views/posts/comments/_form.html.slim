@@ -1,0 +1,5 @@
+= form_tag(post_comments_path(post['id']), method: :post, remote: true) do |f|
+  .w-full.mx-4
+    = text_field_tag :name, nil, required: true, placeholder: 'Name', class: 'h-10 border mt-1 rounded px-4 w-1/4 bg-gray-50'
+    = text_field_tag :body, nil, required: true, placeholder: 'Comment', class: 'h-10 border mx-4 mt-1 rounded px-4 w-2/4 bg-gray-50'
+    = submit_tag 'Add Comment', class: 'w-1/5 bg-gray-400 text-white py-2 rounded hover:bg-gray-500'

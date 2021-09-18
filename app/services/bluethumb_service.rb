@@ -45,7 +45,8 @@ class BluethumbService
       }
     }
 
-    self.class.post("/posts/#{@post_id}/comments", body: payload)
+    response = self.class.post("/posts/#{@post_id}/comments", body: payload)
+    JSON.parse(response.body)['comment']
   end
 
   private
