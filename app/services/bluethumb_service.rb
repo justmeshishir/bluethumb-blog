@@ -2,7 +2,7 @@
 
 class BluethumbService
   include HTTParty
-  base_uri 'http://localhost:4000'
+  base_uri 'http://3.144.74.172'
 
   def initialize(id: nil, payload: nil)
     @post_id = id
