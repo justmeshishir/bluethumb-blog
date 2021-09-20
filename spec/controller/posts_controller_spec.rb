@@ -1,25 +1,34 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  describe "GET /index" do
-    it "render index page" do
+  describe 'GET /index' do
+    it 'render index page' do
       get :index
       expect(response).to render_template(:index)
     end
   end
 
-  describe "GET #new" do
-    it "render new page" do
+  describe 'GET #new' do
+    it 'render new page' do
       get :new
       expect(response).to render_template(:new)
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     context 'valid data' do
-      it "be successful" do
-        post :create, params: { title: "Test title", body: "Testing the body" }, as: :json
+      it 'be successful' do
+        post :create, params: { title: 'Test title', body: 'Testing the body' }, as: :json
         expect(response).to be_successful
+      end
+    end
+
+    context 'invalid data' do
+      it 'render new template' do
+        post :create, params: {}
+        expect(response).to render_template(:new)
       end
     end
   end
