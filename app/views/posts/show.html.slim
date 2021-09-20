@@ -15,7 +15,7 @@
 
   = render 'posts/comments/form', post: @post
 
-  - unless @post['comments'].blank?
-    h3.break-normal.text-base.md:text-sm.mx-4.text-green-500.font-bold.no-underline Comments
-    #all-comments
+  #all-comments
+    - unless @post['comments'].blank?
+      h3.break-normal.text-base.md:text-sm.mx-4.text-green-500.font-bold.no-underline Comments
       = render partial: 'posts/comments/comment', collection: @post['comments'], as: :comment

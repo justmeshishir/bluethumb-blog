@@ -6,9 +6,14 @@ class PostsController < ApplicationController
   def new; end
 
   def create
-    post = BluethumbService.new(payload: post_params).create_post
+    response = BluethumbService.new(payload: post_params).create_post
 
-    redirect_to post_path(post['id'])
+    render :new and return if errors? response
+
+    respond_to do |format|
+      format.html { redirect_to post_path(response['post']['id']) }
+      format.json { render json: response['post'], status: :ok }
+    end
   end
 
   def show

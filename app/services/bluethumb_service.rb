@@ -27,7 +27,7 @@ class BluethumbService
     response = self.class.post('/posts', body: payload)
     return nil if response.body.blank?
 
-    JSON.parse(response.body)['post']
+    JSON.parse(response.body)
   end
 
   def find_post
@@ -46,7 +46,7 @@ class BluethumbService
     }
 
     response = self.class.post("/posts/#{@post_id}/comments", body: payload)
-    JSON.parse(response.body)['comment']
+    JSON.parse(response.body)
   end
 
   private

@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
     post = BluethumbService.new(id: params[:post_id]).find_post
     return if post.blank?
 
-    @comment = BluethumbService.new(id: post['id'], payload: comment_params).create_comment
+    response = BluethumbService.new(id: post['id'], payload: comment_params).create_comment
+    redirect_to post_path(post['id']) and return if errors? response
+
+    @comment = response['comment']
   end
 
   private
