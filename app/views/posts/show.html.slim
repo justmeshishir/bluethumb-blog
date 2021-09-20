@@ -5,7 +5,7 @@
         | &lt;
         a.text-base.md:text-sm.text-green-500.font-bold.no-underline.hover:underline href="#{root_path}"  BACK TO BLOG
       h1.font-bold.font-sans.break-normal.text-gray-900.pt-6.pb-2.text-3xl.md:text-4xl = @post['title']
-      p.text-sm.md:text-base.font-normal.text-gray-600 Published #{Date.parse(@post['created_at']).strftime('%m %B %Y')}
+      p.text-sm.md:text-base.font-normal.text-gray-600 Published #{format_date(@post['created_at'])}
 
     p.py-6
       = @post['body'].html_safe

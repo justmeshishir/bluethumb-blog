@@ -4,4 +4,4 @@
       - @posts&.each do |post|
         = link_to post_path(post['id']) do
           h1.font-bold.font-sans.break-normal.text-gray-900.pt-6.pb-2.text-3xl.md:text-4xl = post['title']
-        p.text-sm.md:text-base.font-normal.text-gray-600 Published #{Date.parse(post['created_at']).strftime('%m %B %Y')}
+        p.text-sm.md:text-base.font-normal.text-gray-600 Published #{format_date(post['created_at'])}
