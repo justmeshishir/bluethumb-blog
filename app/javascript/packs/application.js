@@ -5,8 +5,8 @@
 
 import Rails from "@rails/ujs"
 import "channels"
-import '../stylesheets/application.scss'
+import './main'
 
 Rails.start()
 
-import './main'
+import '../stylesheets/application.scss'
