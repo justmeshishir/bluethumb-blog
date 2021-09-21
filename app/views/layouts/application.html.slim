@@ -6,7 +6,8 @@ html
     = csrf_meta_tags
     = csp_meta_tag
 
-    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body.bg-gray-100.font-sans.leading-normal.tracking-normal
     = render 'shared/nav'

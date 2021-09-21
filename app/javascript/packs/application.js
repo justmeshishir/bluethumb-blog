@@ -4,9 +4,11 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
 import "channels"
 import './main'
 
 Rails.start()
+Turbolinks.start()
 
 import '../stylesheets/application.scss'
